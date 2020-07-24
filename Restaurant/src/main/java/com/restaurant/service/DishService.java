@@ -15,4 +15,7 @@ public interface DishService {
 
 	BaseResponce updateDish(DishDTO dish) throws Exception;
 
+	DishDTO getDishAccoringtoCondition(String dishName, String rName, String dishCuisine, String dishType,
+			double dishPrice)throws Exception;
+
 }

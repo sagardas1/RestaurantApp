@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -55,5 +56,24 @@ public class DishController {
 		return baseResponce;
 
 	}
+	
+	@GetMapping(value = "/getdishaccoringtocondition")
+	public DishDTO getDishAccoringtoCondition(
+			@RequestParam(value="dishName",defaultValue="",required=false)String dishName ,
+	@RequestParam(value="rName",defaultValue="",required=false)String rName,
+	@RequestParam(value="dishCuisine",defaultValue="",required=false)String dishCuisine,
+	@RequestParam(value="dishType",defaultValue="",required=false)String dishType,
+	@RequestParam(value="dishPrice",defaultValue="0",required=false)double dishPrice){
+		
+		DishDTO dishDTO=null;
+		try {
+			dishDTO = dishService.getDishAccoringtoCondition(dishName,rName,dishCuisine,dishType,dishPrice);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dishDTO;
+	}
+	
 
 }

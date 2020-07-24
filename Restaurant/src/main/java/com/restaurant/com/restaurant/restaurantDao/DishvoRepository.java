@@ -35,6 +35,11 @@ public interface DishvoRepository  extends CrudRepository<DishVo,Long> {
 	
 	int updateRestaurant(String dishName, String getrName, DISH_CUISINE dishCuisine, double dishPrice,
 			DISH_TYPE dishType);
+
+	
+	@Modifying
+	@Query(value = ":query", nativeQuery = true)
+	void getDishAccoringtoCondition(String query);
 	
 	
 	

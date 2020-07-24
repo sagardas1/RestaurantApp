@@ -97,4 +97,37 @@ int update = dishvoRepository.updateRestaurant(dish.getDishName(),dish.getrName(
 		return baseResponce;
 	}
 
+	@Override
+	public DishDTO getDishAccoringtoCondition(String dishName, String rName, String dishCuisine, String dishType,
+			double dishPrice) throws Exception {
+		String query="";
+		
+		try {
+			
+			if(dishName!=null&&!dishName.isEmpty()) {
+				query="select * from DISHVO where dishName="+dishName;
+				
+			}else if(rName!=null&&!rName.isEmpty()) {
+				query="select * from DISHVO where rName="+rName;
+			}else if(dishCuisine!=null&&!dishCuisine.isEmpty()) {
+				query="select * from DISHVO where dishCuisine=:"+dishCuisine;
+			}
+			else if(dishType!=null&&!dishType.isEmpty()) {
+				query="select * from DISHVO where dishType="+dishType;
+			}
+			else if(dishPrice>0) {
+				query="select * from DISHVO where dishPrice="+dishPrice;
+			}
+			
+			
+			dishvoRepository.getDishAccoringtoCondition(query);
+			
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
+
+	
+	
+	
+	
 }
