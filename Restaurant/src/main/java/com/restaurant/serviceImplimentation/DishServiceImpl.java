@@ -82,14 +82,14 @@ public class DishServiceImpl implements DishService {
 			vo.setDishType(dish.getDishType());
 			vo.setRName(dish.getrName());
 			
-//			int update = dishvoRepository.updateRestaurant(dish.getDishName(),dish.getrName()));
-//			if (update > 0) {
-//				baseResponce.setStatusCode(ResponceConstants.SUCCESS_CREATED);
-//				baseResponce.setStatusMessage(ResponceConstants.SUCESS_MESSAGE);
-//			} else {
-//				baseResponce.setStatusCode(ResponceConstants.FAILED);
-//				baseResponce.setStatusMessage(ResponceConstants.NOT_FOUND);
-//			}
+int update = dishvoRepository.updateRestaurant(dish.getDishName(),dish.getrName(),dish.getDishCuisine(),dish.getDishPrice(),dish.getDishType());
+			if (update > 0) {
+				baseResponce.setStatusCode(ResponceConstants.SUCCESS_CREATED);
+				baseResponce.setStatusMessage(ResponceConstants.SUCESS_MESSAGE);
+			} else {
+				baseResponce.setStatusCode(ResponceConstants.FAILED);
+				baseResponce.setStatusMessage(ResponceConstants.NOT_FOUND);
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
