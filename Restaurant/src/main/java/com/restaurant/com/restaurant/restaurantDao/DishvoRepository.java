@@ -39,7 +39,7 @@ public interface DishvoRepository  extends CrudRepository<DishVo,Long> {
 	
 	@Modifying
 	@Query(value = ":query", nativeQuery = true)
-	void getDishAccoringtoCondition(String query);
+	DishVo getDishAccoringtoCondition(String query);
 	
 	
 	

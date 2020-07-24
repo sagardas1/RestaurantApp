@@ -63,11 +63,12 @@ public class DishController {
 	@RequestParam(value="rName",defaultValue="",required=false)String rName,
 	@RequestParam(value="dishCuisine",defaultValue="",required=false)String dishCuisine,
 	@RequestParam(value="dishType",defaultValue="",required=false)String dishType,
-	@RequestParam(value="dishPrice",defaultValue="0",required=false)double dishPrice){
+	@RequestParam(value="dishPrice",defaultValue="0",required=false)double dishPrice,
+	@RequestParam(value="dishId",defaultValue="0",required=false)long dishId){
 		
 		DishDTO dishDTO=null;
 		try {
-			dishDTO = dishService.getDishAccoringtoCondition(dishName,rName,dishCuisine,dishType,dishPrice);
+			dishDTO = dishService.getDishAccoringtoCondition(dishName,rName,dishCuisine,dishType,dishPrice,dishId);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

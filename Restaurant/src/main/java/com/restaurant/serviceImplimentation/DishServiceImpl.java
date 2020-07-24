@@ -37,6 +37,7 @@ public class DishServiceImpl implements DishService {
 				vo.setDishPrice(dish.getDishPrice());
 				vo.setDishType(dish.getDishType());
 				vo.setRName(dish.getrName());
+				vo.setRName(dish.getrName());
 				dishvoRepository.save(vo);
 				baseResponce = new BaseResponce();
 				baseResponce.setStatusCode(ResponceConstants.SUCCESS_CREATED);
@@ -99,8 +100,9 @@ int update = dishvoRepository.updateRestaurant(dish.getDishName(),dish.getrName(
 
 	@Override
 	public DishDTO getDishAccoringtoCondition(String dishName, String rName, String dishCuisine, String dishType,
-			double dishPrice) throws Exception {
+			double dishPrice,long dishId) throws Exception {
 		String query="";
+		DishDTO vo=null;
 		
 		try {
 			
@@ -117,13 +119,23 @@ int update = dishvoRepository.updateRestaurant(dish.getDishName(),dish.getrName(
 			}
 			else if(dishPrice>0) {
 				query="select * from DISHVO where dishPrice="+dishPrice;
+			}else if(dishId>0)
+			{
+				query="select * from DISHVO where dishId="+dishId;
 			}
 			
+			DishVo dish=		dishvoRepository.getDishAccoringtoCondition(query);
+			 vo=new DishDTO();
+			vo.setDishCuisine(dish.getDishCuisine());
+			vo.setDishName(dish.getDishName());
+			vo.setDishPrice(dish.getDishPrice());
+			vo.setDishType(dish.getDishType());
+			vo.setrName(dish.getRName());
+		
 			
-			dishvoRepository.getDishAccoringtoCondition(query);
 			
 		}catch(Exception e) {e.printStackTrace();}
-		return null;
+		return vo;
 	}
 
 	
