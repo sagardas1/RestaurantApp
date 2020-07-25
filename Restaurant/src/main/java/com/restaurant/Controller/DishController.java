@@ -1,6 +1,7 @@
 package com.restaurant.Controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.restaurant.baseResponse.BaseResponce;
 import com.restaurant.dto.DishDTO;
 import com.restaurant.dto.RestaurantDTO;
+import com.restaurant.model.DishVo;
 import com.restaurant.service.DishService;
 
 @RestController
@@ -57,18 +59,14 @@ public class DishController {
 
 	}
 	
-	@GetMapping(value = "/getdishaccoringtocondition")
-	public DishDTO getDishAccoringtoCondition(
-			@RequestParam(value="dishName",defaultValue="",required=false)String dishName ,
-	@RequestParam(value="rName",defaultValue="",required=false)String rName,
-	@RequestParam(value="dishCuisine",defaultValue="",required=false)String dishCuisine,
-	@RequestParam(value="dishType",defaultValue="",required=false)String dishType,
-	@RequestParam(value="dishPrice",defaultValue="0",required=false)double dishPrice,
-	@RequestParam(value="dishId",defaultValue="0",required=false)long dishId){
+	@PostMapping(value = "/getdishaccoringtocondition")
+	public List<DishVo> getDishAccoringtoCondition(
+		@RequestBody Map<String,Object> searchForm	){
 		
-		DishDTO dishDTO=null;
+		List<DishVo> dishDTO=null;
 		try {
-			dishDTO = dishService.getDishAccoringtoCondition(dishName,rName,dishCuisine,dishType,dishPrice,dishId);
+			System.out.println("--------->>");
+			dishDTO = dishService.getDishAccoringtoCondition(searchForm);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

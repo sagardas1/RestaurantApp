@@ -2,12 +2,12 @@ package com.restaurant.com.restaurant.restaurantDao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.restaurant.enums.DISH_CUISINE;
 import com.restaurant.enums.DISH_TYPE;
@@ -23,8 +23,8 @@ public interface DishvoRepository  extends CrudRepository<DishVo,Long> {
 	List<DishVo> getDishById(long dishId);
 
 	@Transactional
-	@Query(value="select * from DISHVO where rName=:restName AND dishName:dishName",nativeQuery=true)
-	DishVo getDishFromDB(String dishName, String restName);
+	@Query(value="select * from DISHVO where rName=:restName AND dishName=:dishName",nativeQuery=true)
+	List<DishVo> getDishFromDB(String dishName, String restName);
 
 	
 	@Modifying
@@ -32,14 +32,11 @@ public interface DishvoRepository  extends CrudRepository<DishVo,Long> {
 	int deleteObj(String dishName, String getrName);
 
 	
-	
-	int updateRestaurant(String dishName, String getrName, DISH_CUISINE dishCuisine, double dishPrice,
-			DISH_TYPE dishType);
 
-	
 	@Modifying
-	@Query(value = ":query", nativeQuery = true)
-	DishVo getDishAccoringtoCondition(String query);
+	@Query(value = "Select * from DISHVO", nativeQuery = true)
+	
+	int updateDish(String dishName, String getrName, String dishCuisine, double dishPrice, String dishType);
 	
 	
 	

@@ -9,21 +9,20 @@ private long dishId;
 	
 private String rName;
 	private String dishName;
-	private DISH_CUISINE dishCuisine;
-	private DISH_TYPE dishType;
+	private String dishCuisine;
+	private String dishType;
 	private double dishPrice;
-	
-	public String getrName() {
-		return rName;
-	}
-	public void setrName(String rName) {
-		this.rName = rName;
-	}
 	public long getDishId() {
 		return dishId;
 	}
 	public void setDishId(long dishId) {
 		this.dishId = dishId;
+	}
+	public String getrName() {
+		return rName;
+	}
+	public void setrName(String rName) {
+		this.rName = rName;
 	}
 	public String getDishName() {
 		return dishName;
@@ -31,16 +30,16 @@ private String rName;
 	public void setDishName(String dishName) {
 		this.dishName = dishName;
 	}
-	public DISH_CUISINE getDishCuisine() {
+	public String getDishCuisine() {
 		return dishCuisine;
 	}
-	public void setDishCuisine(DISH_CUISINE dishCuisine) {
+	public void setDishCuisine(String dishCuisine) {
 		this.dishCuisine = dishCuisine;
 	}
-	public DISH_TYPE getDishType() {
+	public String getDishType() {
 		return dishType;
 	}
-	public void setDishType(DISH_TYPE dishType) {
+	public void setDishType(String dishType) {
 		this.dishType = dishType;
 	}
 	public double getDishPrice() {
@@ -49,5 +48,6 @@ private String rName;
 	public void setDishPrice(double dishPrice) {
 		this.dishPrice = dishPrice;
 	}
-
+	
+	
 }

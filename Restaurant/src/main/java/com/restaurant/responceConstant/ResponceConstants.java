@@ -13,18 +13,10 @@ public class ResponceConstants {
 	public static final String SUCESS_MESSAGE = "Success";
 	public static final String DELETE_MESSAGE = "deleted";
 	public static final String FAIL_MESSAGE = "Failed";
-	public static final String PASSWORD_DIDNT_MATCH = "passwords didnt match";
-	public static final String SUCESS_MESSAGE_LOGIN = "Success login";
-	public static final String FAILED_MESSAGE_LOGIN = "Incorrect email or password";
-	public static final String UPDATE = "Updated";
-	public static final String PAYMENT_SUCCESSFULL = "Payment Successfull";
 	
 	
 	public static final String DUPLICATE_ORDER = "Duplicate order";
 	public static final String NOT_FOUND = "Not found";
 	
-	//payment status
-	public static final int PAID = 1;
-	public static final int NOT_PAID = 0;
 	
 }

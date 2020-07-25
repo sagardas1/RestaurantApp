@@ -35,12 +35,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 					restaurantDTO.getrZip());
 			if (restObjDb == null) {
 				RestaurantVo restaurantVo = new RestaurantVo();
-				restaurantVo.setRCity(restaurantDTO.getrCity());
-				restaurantVo.setRCountry(restaurantDTO.getrCountry());
-				restaurantVo.setRName(restaurantDTO.getrName());
-				restaurantVo.setRPhone(restaurantDTO.getrPhone());
-				restaurantVo.setRState(restaurantDTO.getrState());
-				restaurantVo.setRZip(restaurantDTO.getrZip());
+				restaurantVo.setrCity(restaurantDTO.getrCity());
+				restaurantVo.setrCountry(restaurantDTO.getrCountry());
+				restaurantVo.setrName(restaurantDTO.getrName());
+				restaurantVo.setrPhone(restaurantDTO.getrPhone());
+				restaurantVo.setrState(restaurantDTO.getrState());
+				restaurantVo.setrZip(restaurantDTO.getrZip());
 				restaurantRepostory.save(restaurantVo);
 				baseResponce = new BaseResponce();
 				baseResponce.setStatusCode(ResponceConstants.SUCCESS_CREATED);
@@ -83,12 +83,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 		BaseResponce baseResponce = new BaseResponce();
 		try {
 			RestaurantVo restaurantVo = new RestaurantVo();
-			restaurantVo.setRCity(restaurantDTO.getrCity());
-			restaurantVo.setRCountry(restaurantDTO.getrCountry());
-			restaurantVo.setRName(restaurantDTO.getrName());
-			restaurantVo.setRPhone(restaurantDTO.getrPhone());
-			restaurantVo.setRState(restaurantDTO.getrState());
-			restaurantVo.setRZip(restaurantDTO.getrZip());
+			restaurantVo.setrCity(restaurantDTO.getrCity());
+			restaurantVo.setrCountry(restaurantDTO.getrCountry());
+			restaurantVo.setrName(restaurantDTO.getrName());
+			restaurantVo.setrPhone(restaurantDTO.getrPhone());
+			restaurantVo.setrState(restaurantDTO.getrState());
+			restaurantVo.setrZip(restaurantDTO.getrZip());
 			int update = restaurantRepostory.updateRestaurant(restaurantDTO.getrName(), restaurantDTO.getrCity(),
 					restaurantDTO.getrZip());
 			if (update > 0) {

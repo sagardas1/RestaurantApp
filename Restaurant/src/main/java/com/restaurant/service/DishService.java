@@ -1,9 +1,11 @@
 package com.restaurant.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.restaurant.baseResponse.BaseResponce;
 import com.restaurant.dto.DishDTO;
+import com.restaurant.model.DishVo;
 
 public interface DishService {
 	
@@ -15,7 +17,8 @@ public interface DishService {
 
 	BaseResponce updateDish(DishDTO dish) throws Exception;
 
-	DishDTO getDishAccoringtoCondition(String dishName, String rName, String dishCuisine, String dishType,
-			double dishPrice,long dishId)throws Exception;
+	
+
+	List<DishVo> getDishAccoringtoCondition(Map<String, Object> searchForm) throws Exception;
 
 }
