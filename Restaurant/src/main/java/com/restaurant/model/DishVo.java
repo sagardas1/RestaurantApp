@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import com.restaurant.enums.DISH_CUISINE;
 import com.restaurant.enums.DISH_TYPE;
 
-import lombok.Data;
 
 @Entity
 @Table(name = "DISHVO")
